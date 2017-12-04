@@ -10,5 +10,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thanhdat21293/thanhquanshop.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6"
   }
 }

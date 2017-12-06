@@ -8,7 +8,7 @@ mongoose.connect(`mongodb://${ config.mongoConfig.host }:${ config.mongoConfig.p
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(require('./routes/routes')(express));
+app.use('/api/', require('./routes/routes')(express));
 
 
 const port = 3000;

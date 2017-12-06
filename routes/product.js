@@ -10,6 +10,9 @@ module.exports = (express) => {
     router.route('/latestproduct')
         .get(productController.latestProduct)
 
+    router.route('/hotproduct')
+        .get(productController.hotProduct)
+
     router.route('/addproduct')
         .get(productController.addProduct)
 

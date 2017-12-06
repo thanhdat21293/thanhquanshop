@@ -62,6 +62,44 @@ m.nested.stuff = 'good';
 m.save(callback);
 ```
 
+### Bộ chọn Query
+
+[Xem thêm](https://docs.mongodb.com/manual/reference/operator/query/)
+
+#### Tím kiếm so sánh
+|Tên|Mô tả|
+|:--|:-------:|
+|$eq|Bằng|
+|$gt|Lớn hơn|
+|$gte|Lớn hơn hoặc bằng|
+|$in|Phù hợp giá trị trong mảng|
+|$lt|Nhỏ hơn|
+|$lte|Nhỏ hơn hoặc bằng|
+|$ne|Tìm khác giá trị được chỉ định|
+
+
+### Truy vấn trong mongo
+
+```javascript
+Product.find(
+    { status: 1, date: Date.now }, // Điều kiện truy vấn
+    { title: 1, content: 1 } // Hiển thị những trường nào ra
+    )
+    .limit(10) // Giới hạn bản ghi
+    .sort({created_at: 'desc'}); // Sắp xếp
+    
+// Tìm status = A hoặc = D
+.find({ 
+  status: { $in: ["A", "D"] }
+});
+
+// Tìm status = A và qty < 30
+.find({ 
+  status: "A", 
+  qty: { $lt: 30 }
+});
+```
+
 ### Tham khảo
 
 Viết theo Model - Controller của a Hải [Xem](https://github.com/haivx/connect-mongodb-express/tree/master/Example%203)

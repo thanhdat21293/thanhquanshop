@@ -7,13 +7,46 @@ module.exports = {
             res.status(200).json(allProduct)
         }
         catch (err) {
-            console.log('ERROR', err)
+            res.json({ errMsg: err.message })
         }
     },
     latestProduct: async(req, res) => {
         try {
-            let allProduct = await Product.find({}).limit(10).sort({created_at: 'desc'});
-            res.status(200).json(allProduct)
+            let latestProduct = await Product.find(
+                {
+                    status: 1
+                },
+                {
+                    title: 1,
+                    main_property: 1,
+                    price: 1
+                })
+                .limit(10)
+                .sort({
+                    created_at: 'desc'
+                });
+            res.status(200).json(latestProduct)
+        }
+        catch (err) {
+            res.json({ errMsg: err.message })
+        }
+    },
+    hotProduct: async(req, res) => {
+        try {
+            let hotProduct = await Product.find(
+                {
+                    status: 1
+                },
+                {
+                    title: 1,
+                    main_property: 1,
+                    price: 1
+                })
+                .limit(10)
+                .sort({
+                    sold: 'desc'
+                })
+            res.status(200).json(hotProduct)
         }
         catch (err) {
             res.json({ errMsg: err.message })

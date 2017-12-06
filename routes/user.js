@@ -7,5 +7,8 @@ module.exports = (express) => {
     router.route('/')
         .get(userController.index)
 
+    router.route('/adduser')
+        .get(userController.addUser)
+
     return router;
-}
+};

@@ -8,5 +8,8 @@ module.exports = (express) => {
     const user = require('./user')(express)
     router.use('/user', user)
 
+    const product = require('./product')(express)
+    router.use('/product', product)
+
     return router
 };

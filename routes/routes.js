@@ -1,3 +1,5 @@
+const authenticateController = require('../controllers/authenticateController')
+
 module.exports = (express) => {
 
     const router = express.Router();
@@ -10,6 +12,12 @@ module.exports = (express) => {
 
     const product = require('./product')(express)
     router.use('/product', product)
+
+    router.route('/login')
+        .post(authenticateController.login)
+
+    router.route('/register')
+        .post(authenticateController.register)
 
     return router
 };

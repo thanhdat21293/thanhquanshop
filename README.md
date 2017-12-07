@@ -11,6 +11,78 @@
 - Frontend: React.js
 - Database: MongoDB
 
+## API
+
+### Product
+
+##### GET /api/productlatestproduct
+
+Dữ liệu gửi
+
+```
+Không có
+```
+
+Dữ liệu trả về
+```json
+[
+...
+    {
+        "_id": "5a279cc53e521a157646106f",
+        "title": "Xiaomi Redmi Note 4X - 32GB - Ram 3 GB",
+        "main_property": {
+            "Bộ nhớ trong:": "32GB",
+            "Chip xử lý (CPU):": "Qualcomm MSM8953 Snapdragon 625, Octa-core 2.0 GHz Cortex-A53,Adreno 506",
+            "Dung lượng pin (mAh):": "4100 mAh",
+            "Hãng sản xuất": "Xiaomi",
+            "Hệ điều hành:": "Android 6.0 (Giao diện MIUI 8.0)",
+            "Kích thước màn hình:": "5.5 inch",
+            "Máy ảnh chính:": "13 MP, phụ 5 MP",
+            "RAM:": "3 GB",
+            "Độ phân giải màn hình:": "1080 x 1920 pixels"
+        },
+        "price": 3890000
+    }
+...
+]
+```
+
+##### GET /api/hotproduct
+
+Dữ liệu gửi
+
+```
+Không có
+```
+
+Dữ liệu trả về
+```json
+[
+...
+    {
+        "_id": "5a279cc53e521a157646106f",
+        "title": "Xiaomi Redmi Note 4X - 32GB - Ram 3 GB",
+        "main_property": {
+            "Bộ nhớ trong:": "32GB",
+            "Chip xử lý (CPU):": "Qualcomm MSM8953 Snapdragon 625, Octa-core 2.0 GHz Cortex-A53,Adreno 506",
+            "Dung lượng pin (mAh):": "4100 mAh",
+            "Hãng sản xuất": "Xiaomi",
+            "Hệ điều hành:": "Android 6.0 (Giao diện MIUI 8.0)",
+            "Kích thước màn hình:": "5.5 inch",
+            "Máy ảnh chính:": "13 MP, phụ 5 MP",
+            "RAM:": "3 GB",
+            "Độ phân giải màn hình:": "1080 x 1920 pixels"
+        },
+        "price": 3890000
+    }
+...
+]
+```
+
+### Authenticate
+
+
+
 ## Mongo
 
 #### Các kiểu dữ liệu trong MongoDB

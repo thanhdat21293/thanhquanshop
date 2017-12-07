@@ -13,7 +13,6 @@ module.exports = {
     },
     addUser: async function (req, res) {
         try {
-            console.log(req.body)
             // const addNewUser = new User(
             //     {
             //           fullname: 'Nguyễn Thành Đạt',

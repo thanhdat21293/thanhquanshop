@@ -5,5 +5,13 @@ module.exports = {
         user: '',
         pass: '',
         data: 'thanhquan'
+    },
+    bcrypt: {
+        saltRounds: 10,
+        myPlaintextPassword: 's0/\/\P4$$w0rD'
+    },
+    jwt: {
+        secretOrKey: 'secret',
+        issuer: 'localhost'
     }
 }

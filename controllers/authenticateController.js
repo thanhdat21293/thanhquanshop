@@ -1,16 +1,31 @@
 const User = require('../models/userModel')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
+
+const config = require('../config/config')
+const appConfig = (json) => {
+    let jsonArr = json.split('.')
+    if(jsonArr.length > 0) {
+        let url = config;
+        jsonArr.map(item => {
+            url = url[item]
+        })
+        return url
+    }else {
+        return config[jsonArr[0]]
+    }
+}
+
+const saltRounds = appConfig('bcrypt.saltRounds');
+const myPlaintextPassword = appConfig('bcrypt.myPlaintextPassword');
 
 const JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('jwt'),
-    secretOrKey: 'secret',
-    issuer: 'localhost'
+    secretOrKey: appConfig('jwt.secretOrKey'),
+    issuer: appConfig('jwt.issuer')
 }
 module.exports = {
     register: async(req, res) => {

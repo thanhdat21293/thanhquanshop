@@ -1,4 +1,4 @@
-module.exports = (express) => {
+module.exports = (appConfig, express) => {
 
   const router = express.Router();
 

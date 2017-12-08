@@ -1,6 +1,6 @@
 const authenticateController = require('../controllers/authenticateController')
 
-module.exports = (express, passport) => {
+module.exports = (appConfig, express, passport) => {
 
     const jwtAuthenticate = () => passport.authenticate('jwt', {session: false});
 

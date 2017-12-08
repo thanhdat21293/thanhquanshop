@@ -2,11 +2,9 @@ const User = require('../../models/userModel')
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 
-const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
 
+module.exports = function(appConfig, passport){
 
-module.exports = function(passport){
     passport.use(new LocalStrategy(
         async function (username, password, done) {
 
@@ -34,4 +32,5 @@ module.exports = function(passport){
 
         }
     ));
+
 }

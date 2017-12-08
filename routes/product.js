@@ -1,6 +1,6 @@
 const productController = require('../controllers/productController')
 
-module.exports = (express) => {
+module.exports = (appConfig, express) => {
 
     const router = express.Router()
 

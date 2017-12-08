@@ -3,19 +3,32 @@ const app = express();
 const bodyParser = require('body-parser');
 const config = require('./config/config')
 const mongoose = require('mongoose')
-mongoose.connect(`mongodb://${ config.mongoConfig.host }:${ config.mongoConfig.port }/${ config.mongoConfig.data }`, {useMongoClient: true})
 
 const passport = require('passport');
 const flash = require("connect-flash");
 const session = require('express-session');
+const appConfig = (json) => {
+    let jsonArr = json.split('.')
+    if(jsonArr.length > 0) {
+        let url = config;
+        jsonArr.map(item => {
+            url = url[item]
+        })
+        return url
+    }else {
+        return config[jsonArr[0]]
+    }
+}
+
+mongoose.connect(`mongodb://${ appConfig('mongoConfig.host') }:${ appConfig('mongoConfig.port') }/${ appConfig('mongoConfig.data') }`, {useMongoClient: true})
 const passportJWT = require('passport-jwt');
 const JwtStrategy = passportJWT.Strategy,
     ExtractJwt = passportJWT.ExtractJwt;
 
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('jwt'),
-    secretOrKey: 'secret',
-    issuer: 'localhost'
+    secretOrKey: appConfig('jwt.secretOrKey'),
+    issuer: appConfig('jwt.issuer')
 }
 
 const strategy = new JwtStrategy(jwtOptions, (jwt_payload, next) => {
@@ -46,10 +59,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 require('./passport/passport')(passport)
 require('./passport/facebook/facebook')(passport)
 require('./passport/google/google')(passport)
-require('./passport/local/local')(passport)
+require('./passport/local/local')(appConfig, passport)
 
 
-app.use('/api/', require('./routes/routes')(express, passport));
+app.use('/api/', require('./routes/routes')(appConfig, express, passport));
 
 
 const port = 3000;

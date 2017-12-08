@@ -2,7 +2,6 @@
 
 **Thành viên:**
 - Mạnh Linh
-- Hà Đăng
 - Quang Tuyên
 - Thành Đạt (Hỗ trợ đẩy tiến độ + đồ án)
 

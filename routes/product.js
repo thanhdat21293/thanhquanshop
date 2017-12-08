@@ -1,7 +1,9 @@
-const productController = require('../controllers/productController')
+
 
 module.exports = (appConfig, express) => {
 
+    const productController = require('../controllers/productController')
+    const productCategoryController = require('../controllers/productCategoryController')
     const router = express.Router()
 
     router.route('/')
@@ -17,7 +19,16 @@ module.exports = (appConfig, express) => {
         .get(productController.addProduct)
 
     router.route('/addcategory')
-        .get(productController.addCategories)
+        .get(productCategoryController.addCategories)
+
+    router.route('/productbycat/nochild/:category_id')
+        .get(productController.productByCatNoChild)
+
+    router.route('/productbycat/andchild/:category_id')
+        .get(productController.productByCatAndChild)
+
+    router.route('/productbycat/andchild/:category_id/page/:page')
+        .get(productController.productByCatAndChild)
 
     return router;
 };

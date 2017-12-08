@@ -1,6 +1,6 @@
 {
   "0": {
-    "category_id": "C01",
+    "category_id": "apple",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -81,7 +81,7 @@
     "product_id": "r1UaB19pg"
   },
   "1": {
-    "category_id": "C01",
+    "category_id": "xiaomi",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -153,7 +153,7 @@
     "product_id": "SJdTHy9ag"
   },
   "2": {
-    "category_id": "C01",
+    "category_id": "samsung",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -232,7 +232,7 @@
     "product_id": "Skaary5Tg"
   },
   "3": {
-    "category_id": "C01",
+    "category_id": "xiaomi",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -304,7 +304,7 @@
     "product_id": "B1CTr1cal"
   },
   "4": {
-    "category_id": "C01",
+    "category_id": "samsung",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -385,7 +385,7 @@
     "product_id": "rJ8Rr15Tg"
   },
   "5": {
-    "category_id": "C01",
+    "category_id": "apple",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -461,7 +461,7 @@
     "product_id": "SyxIRrkqal"
   },
   "6": {
-    "category_id": "C01",
+    "category_id": "apple",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -542,7 +542,7 @@
     "product_id": "Bk0RH1qTl"
   },
   "7": {
-    "category_id": "C01",
+    "category_id": "philip",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -640,7 +640,7 @@
     "product_id": "BJg0AB1q6e"
   },
   "8": {
-    "category_id": "C01",
+    "category_id": "xiaomi",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -714,11 +714,8 @@
     "store_day": "2017-04-06 09:00:00",
     "product_id": "ryo1I1qae"
   },
-  "9": {
-    "product_id": "r1RyUJqal"
-  },
   "10": {
-    "category_id": "C01",
+    "category_id": "sony",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -800,7 +797,7 @@
     "product_id": "SJ4gLkcax"
   },
   "11": {
-    "category_id": "C01",
+    "category_id": "philips",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -861,7 +858,7 @@
     "product_id": "Hy1Z8JcTx"
   },
   "12": {
-    "category_id": "C01",
+    "category_id": "apple",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -959,7 +956,7 @@
     "product_id": "rklZIkqTx"
   },
   "13": {
-    "category_id": "C01",
+    "category_id": "oppo",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1038,7 +1035,7 @@
     "product_id": "HkO-L1c6e"
   },
   "14": {
-    "category_id": "C01",
+    "category_id": "asus",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1136,7 +1133,7 @@
     "product_id": "rJib8J5Te"
   },
   "15": {
-    "category_id": "C01",
+    "category_id": "xiaomi",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1211,7 +1208,7 @@
     "product_id": "SyAbL1q6x"
   },
   "16": {
-    "category_id": "C01",
+    "category_id": "apple",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1300,7 +1297,7 @@
     "product_id": "By4fI1qTg"
   },
   "17": {
-    "category_id": "C01",
+    "category_id": "huawei",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1387,7 +1384,7 @@
     "product_id": "H1HzLkqae"
   },
   "18": {
-    "category_id": "C01",
+    "category_id": "oppo",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1476,7 +1473,7 @@
     "product_id": "HyAzIycal"
   },
   "19": {
-    "category_id": "C01",
+    "category_id": "xiaomi",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1550,7 +1547,7 @@
     "product_id": "r1l78kcpx"
   },
   "20": {
-    "category_id": "C01",
+    "category_id": "motorola",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1637,7 +1634,7 @@
     "product_id": "H1O78Jc6x"
   },
   "21": {
-    "category_id": "C01",
+    "category_id": "xiaomi",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1709,7 +1706,7 @@
     "product_id": "HkY78kcTe"
   },
   "22": {
-    "category_id": "C01",
+    "category_id": "lenovo",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1785,7 +1782,7 @@
     "product_id": "Sy-N8y56l"
   },
   "23": {
-    "category_id": "C01",
+    "category_id": "lenovo",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",
@@ -1861,7 +1858,7 @@
     "product_id": "SJxWEU1c6e"
   },
   "24": {
-    "category_id": "C01",
+    "category_id": "htc",
     "description": {
       "Bảo hành chính hãng": "Thân máy 12 tháng. Sạc 12 tháng. Tai nghe 12 tháng",
       "Giao hàng": "Giao hàng miễn phí trong 2 tiếng (nếu đặt hàng sau 19h cửa hàng sẽ giao hàng vào hôm sau)",

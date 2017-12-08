@@ -13,5 +13,9 @@ module.exports = {
     jwt: {
         secretOrKey: 'secret',
         issuer: 'localhost'
+    },
+    numberOfPage: {
+        frontend: 10,
+        backend: 10
     }
 }

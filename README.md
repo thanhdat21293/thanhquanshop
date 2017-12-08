@@ -154,9 +154,10 @@ m.save(callback);
 ```javascript
 Product.find(
     { status: 1, date: Date.now }, // Điều kiện truy vấn
-    { title: 1, content: 1 } // Hiển thị những trường nào ra
     )
+    .select('_id name') // Trường muốn hiển thị
     .limit(10) // Giới hạn bản ghi
+    .skip(0) // bắt đầu từ thằng nào (Giống offset trong sql)
     .sort({created_at: 'desc'}); // Sắp xếp
     
 // Tìm status = A hoặc = D

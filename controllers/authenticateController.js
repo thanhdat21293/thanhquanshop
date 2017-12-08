@@ -1,5 +1,5 @@
 const User = require('../models/userModel')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const config = require('../config/config')
@@ -17,7 +17,6 @@ const appConfig = (json) => {
 }
 
 const saltRounds = appConfig('bcrypt.saltRounds');
-const myPlaintextPassword = appConfig('bcrypt.myPlaintextPassword');
 
 const JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -54,8 +53,8 @@ module.exports = {
                 if (checkUser.length > 0) {
                     res.json({errMsg: 'Tên đăng nhập hoặc Email đã tồn tại.'})
                 } else {
-                    bcrypt.genSalt(10, function (err, salt) {
-                        bcrypt.hash(password, salt, function (err, hash) {
+                    bcrypt.genSalt(saltRounds, function(err, salt) {
+                        bcrypt.hash(password, salt, function(err, hash) {
                             let register = new User({
                                 username: username,
                                 password: hash,
@@ -82,22 +81,22 @@ module.exports = {
             if (message) {
                 req.session.flash = '';
                 res.status(200).json({errMsg: message})
+            } else {
+                let payload = {
+                    username: req.user.username,
+                    email: req.user.email,
+                    id: req.user._id
+                };
+                jwt.sign(payload, jwtOptions.secretOrKey, {issuer: jwtOptions.issuer}, function (err, token) {
+                    if (err)
+                        res.json({errMsg: err.message})
+
+                    res.status(200).json({
+                        user: payload,
+                        token: token
+                    })
+                });
             }
-
-            let payload = {
-                username: req.user.username,
-                email: req.user.email,
-                id: req.user._id
-            };
-            jwt.sign(payload, jwtOptions.secretOrKey, {issuer: jwtOptions.issuer}, function (err, token) {
-                if (err)
-                    res.json({errMsg: err.message})
-
-                res.status(200).json({
-                    user: payload,
-                    token: token
-                })
-            });
         }
         catch (err) {
             res.json({errMsg: err.message})

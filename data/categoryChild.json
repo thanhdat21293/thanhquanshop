@@ -1,0 +1,72 @@
+{
+  "0": {
+    "name": "Apple",
+    "alias": "apple",
+    "parent": "5a2a0b85f859eb09b3897126"
+  },
+  "1": {
+    "name": "Samsung",
+    "alias": "samsung",
+    "parent": "5a2a0b85f859eb09b3897126"
+  },
+  "2": {
+    "name": "Sony",
+    "alias": "sony",
+    "parent": "5a2a0b85f859eb09b3897126"
+  },
+  "3": {
+    "name": "Oppo",
+    "alias": "oppo",
+    "parent": "5a2a0b85f859eb09b3897126"
+  },
+  "4": {
+    "name": "Asus",
+    "alias": "asus",
+    "parent": "5a2a0b85f859eb09b3897126"
+  },
+  "5": {
+    "name": "Lenovo",
+    "alias": "lenovo",
+    "parent": "5a2a0b85f859eb09b3897126"
+  },
+  "6": {
+    "name": "Nokia",
+    "alias": "nokia",
+    "parent": "5a2a0b85f859eb09b3897126"
+  },
+  "7": {
+    "name": "Pin",
+    "alias": "pin",
+    "parent": "5a2a0b85f859eb09b3897127"
+  },
+  "8": {
+    "name": "Cáp sạc",
+    "alias": "cap-sac",
+    "parent": "5a2a0b85f859eb09b3897127"
+  },
+  "9": {
+    "name": "Thẻ nhớ",
+    "alias": "the-nho",
+    "parent": "5a2a0b85f859eb09b3897127"
+  },
+  "10": {
+    "name": "Tai nghe",
+    "alias": "tai-nghe",
+    "parent": "5a2a0b85f859eb09b3897127"
+  },
+  "11": {
+    "name": "Loa",
+    "alias": "loa",
+    "parent": "5a2a0b85f859eb09b3897127"
+  },
+  "12": {
+    "name": "Ốp lưng",
+    "alias": "op-lung",
+    "parent": "5a2a0b85f859eb09b3897127"
+  },
+  "13": {
+    "name": "Gậy chụp ảnh",
+    "alias": "gay-chup-anh",
+    "parent": "5a2a0b85f859eb09b3897127"
+  }
+}

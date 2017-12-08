@@ -12,7 +12,11 @@ const productSchema = new Schema({
     detail_property: Object,
     main_property: Object,
     price: {type: Number, min: 0},
-    categories: Array,
+    categories: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'tm_product_categories',
+        required: true
+    },
     qty: {type: Number, min: 0},
     sold: {type: Number, min: 0},
     product_template_id: String,

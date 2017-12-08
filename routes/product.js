@@ -16,5 +16,8 @@ module.exports = (appConfig, express) => {
     router.route('/addproduct')
         .get(productController.addProduct)
 
+    router.route('/addcategory')
+        .get(productController.addCategories)
+
     return router;
 };

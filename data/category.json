@@ -1,0 +1,12 @@
+{
+  "0": {
+    "name": "Điện thoại",
+    "alias": "dien-thoai",
+    "parent": "0"
+  },
+  "1": {
+    "name": "Phụ kiện",
+    "alias": "phu-kien",
+    "parent": "0"
+  }
+}

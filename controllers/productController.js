@@ -1,4 +1,5 @@
 const Product = require('../models/productModel')
+const Category = require('../models/productCategoryModel')
 
 module.exports = {
     index: async(req, res) => {
@@ -54,7 +55,7 @@ module.exports = {
     },
     addProduct: async(req, res) => {
         try {
-            // let data = require('../data/data.json')
+            // let data = require('../data/product.json')
             // for(let i in data) {
             //     let item = data[i];
             //     let addNewProduct = new Product(
@@ -79,7 +80,33 @@ module.exports = {
             res.status(200).json({a:1})
         }
         catch (err) {
-            console.log('ERROR: ', err)
+            res.json({errMsg:err.message})
+        }
+    },
+    addCategories: async (req, res) => {
+        try {
+            // Thêm category cha: 'Điện thoại' và 'Phụ kiện'
+            // let data = require('../data/category.json')
+
+            // Thêm category cha xong thì vào category con để sửa parent = id cha
+            // let data = require('../data/categoryChild.json')
+            // for(let i in data) {
+            //     let item = data[i];
+            //     let addNewProduct = new Category(
+            //         {
+            //             user_id: '5a28ecfb1372972cba5877b7',
+            //             name: item.name,
+            //             alias: item.alias,
+            //             parent: item.parent
+            //         }
+            //     )
+            //     console.log(addNewProduct)
+            //     await addNewProduct.save();
+            // }
+            res.status(200).json({a:1})
+        }
+        catch (err) {
+            res.json({errMsg:err.message})
         }
     }
 }

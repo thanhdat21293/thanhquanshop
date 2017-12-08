@@ -60,4 +60,4 @@ typings/
 
 .DS_Store
 .idea
-.package-lock.json
+package-lock.json

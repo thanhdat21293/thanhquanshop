@@ -8,7 +8,7 @@ module.exports = (appConfig, express) => {
         .get(userController.index)
 
     router.route('/adduser')
-        .get(userController.addUser)
+        .post(userController.addUser)
 
     return router;
 

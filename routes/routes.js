@@ -14,5 +14,8 @@ module.exports = (appConfig, express, passport) => {
     const product = require('./product')(appConfig, express)
     router.use('/product', product)
 
+    const blog = require('./blog')(appConfig, express)
+    router.use('/blog', blog)
+
     return router
 };

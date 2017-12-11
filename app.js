@@ -36,7 +36,6 @@ const jwtOptions = {
 }
 
 const strategy = new JwtStrategy(jwtOptions, (jwt_payload, next) => {
-    console.log('payload received111', jwt_payload);
     if (jwt_payload) {
         next(null, jwt_payload);
     } else {

@@ -19,7 +19,11 @@ const appConfig = (json) => {
         return config[jsonArr[0]]
     }
 }
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 mongoose.connect(`mongodb://${ appConfig('mongoConfig.host') }:${ appConfig('mongoConfig.port') }/${ appConfig('mongoConfig.data') }`, {useMongoClient: true})
 const passportJWT = require('passport-jwt');
 const JwtStrategy = passportJWT.Strategy,

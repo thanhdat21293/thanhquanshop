@@ -28,7 +28,7 @@ module.exports = {
                 .sort({
                     created_at: 'desc'
                 });
-            res.status(200).json(latestProduct)
+            res.status(200).json({products: latestProduct})
         }
         catch (err) {
             res.json({ errMsg: err.message })
@@ -49,7 +49,7 @@ module.exports = {
                 .sort({
                     sold: 'desc'
                 })
-            res.status(200).json(hotProduct)
+            res.status(200).json({products: hotProduct})
         }
         catch (err) {
             res.json({ errMsg: err.message })

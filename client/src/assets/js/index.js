@@ -18,7 +18,7 @@ $(document).ready(function(){
     $(".contact-box-button").click(function(){
         $(".contact-box").toggleClass("contact-box-up");
     });
-    
+
     $(".contact-box-button").click(function(){
         $(".contact-box-title").toggleClass("block");
     });
@@ -53,11 +53,11 @@ $(document).ready(function(){
         $(".log-in-box").toggleClass("appear");
     });
 
-    
-    $(".buy").click(function(){
-        $(".buy").css("display", "none");
-        $(".added").css("display", "block");
-    });
+
+    // $(".buy").click(function(){
+    //     $(".buy").css("display", "none");
+    //     $(".added").css("display", "block");
+    // });
 
 
     $(".watch-more").click(function(){
@@ -102,7 +102,7 @@ $(document).ready(function(){
     $(".thoi-gian-title").click(function(){
         $(".thoi-gian").toggleClass("height-auto");
     });
-  
+
 
 
 
@@ -114,7 +114,7 @@ $(document).ready(function(){
 
 
     $('.onclick-loggoff').on('click',function () {
-        $('.log-in').css('display','block','!important');   
+        $('.log-in').css('display','block','!important');
         $('.logged').css('display','none','!important');
     });
 

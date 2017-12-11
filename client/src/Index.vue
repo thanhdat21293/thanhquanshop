@@ -9,7 +9,7 @@
 				<QuangCao></QuangCao>
         <PhuKien></PhuKien>
         <QuangCao></QuangCao>
-        <Video></Video>
+        <Videoo></Videoo>
 			</section>
   </div>
 </template>
@@ -18,9 +18,10 @@ import Slide from '@/components/home/Slide'
 import HotProduct from '@/components/home/HotProduct'
 import LatestProduct from '@/components/home/LatestProduct'
 import PhuKien from '@/components/home/PhuKien'
-import Video from '@/components/home/Video'
+import Videoo from '@/components/home/Video'
 import QuangCao from '@/components/home/QuangCao'
 import axios from 'axios'
+let SERVER = process.env.SERVER
 export default {
   data () {
     return {
@@ -30,12 +31,12 @@ export default {
   },
   created () {
     // HotProduct
-    axios.get('http://localhost:3000/api/product/hotproduct')
+    axios.get(`${SERVER}/api/product/hotproduct`)
       .then(res => {
         this.hotProduct = res.data.products
       })
     // LatestProduct
-    axios.get('http://localhost:3000/api/product/latestproduct')
+    axios.get(`${SERVER}/api/product/latestproduct`)
       .then(res => {
         this.latestProduct = res.data.products
       })
@@ -45,7 +46,7 @@ export default {
     HotProduct,
     LatestProduct,
     PhuKien,
-    Video,
+    Videoo,
     QuangCao
   }
 }

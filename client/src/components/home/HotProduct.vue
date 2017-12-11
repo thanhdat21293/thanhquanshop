@@ -17,7 +17,7 @@
                 <p v-for="value, name in product.main_property" class="des">{{ name }} {{value}}</p>
               </div>
               <a :href="'/product/' + product._id" class="watch">Xem chi tiết</a>
-              <span class="buy" :url="product._id">Mua hàng</span>
+              <span class="buy" @click.stop.prevent="addtocart(product._id)">Mua hàng</span>
               <span class="buy added">Đã thêm vào giỏ hàng</span>
             </div><!-- end info-box -->
           </div><!-- end name-price -->
@@ -28,6 +28,24 @@
 </template>
 <script>
   export default {
-    props: ['hotProduct']
+    props: ['hotProduct'],
+    methods: {
+      // let SERVER = process.env.SERVER
+      addtocart (id) {
+        if (localStorage.cart) {
+          let cart = JSON.parse(localStorage.cart)
+          if (cart[id] > 0) {
+            cart[id] += 1
+          } else {
+            cart[id] = 1
+          }
+          localStorage.cart = JSON.stringify(cart)
+        } else {
+          let cart = {}
+          cart[id] = 1
+          localStorage.cart = JSON.stringify(cart)
+        }
+      }
+    }
   }
 </script>

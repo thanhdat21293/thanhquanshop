@@ -10,6 +10,8 @@ module.exports = (appConfig, express) => {
     router.route('/adduser')
         .post(userController.addUser)
 
+
+
     return router;
 
 };

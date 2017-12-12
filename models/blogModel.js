@@ -13,6 +13,7 @@ const blogSchema = new Schema({
         type: String,
         default: ''
     },
+    description: String,
     created_at: {
         type:Date,
         default: Date.now()

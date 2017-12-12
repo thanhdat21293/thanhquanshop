@@ -113,7 +113,8 @@ module.exports = {
             let products = product.splice(offset, appConfig.numberOfPage.frontend)
             res.status(200).json({
                 products,
-                total
+                total,
+                page
             })
         }
         catch (err) {

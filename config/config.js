@@ -15,7 +15,7 @@ module.exports = {
         issuer: 'localhost'
     },
     numberOfPage: {
-        frontend: 10,
-        backend: 10
+        frontend: 4,
+        backend: 4
     }
 }

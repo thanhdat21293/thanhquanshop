@@ -12,6 +12,158 @@
 
 ## API
 
+### Blogs
+
+##### GET /api/blog/post
+
+Dữ liệu gửi
+
+```
+ không có
+```
+
+Dữ liệu trả về
+
+```json
+[
+...
+
+    {
+        "_id": "5a2f447b1f72d004fa7fc595",
+        "user_id": "5a2e5331a79ae80b45c20382",
+        "title": "So sánh nhanh những khác biệt giữa Galaxy S8 và Galaxy S8 Plus",
+        "content": "Xperia XA đã rất thành công vì vậy mà nhiều người đang mong đợi phiên bản Xperia XA1 sẽ về Việt Nam. Tin vui là máy đã có giá bán chính thức và lên kệ tại Thế giới di động.\n\nTheo đó, Xperia XA1 có giá bán chính thức là 6.49 triệu đồng tại nước ta, hiện sản phẩm chỉ được bán độc quyền tại hệ thống siêu thị TGDĐ. Các bạn có thể mua máy trong thời gian từ 28/3 - 30/4 sẽ nhận được khuyến mãi là trả góp 0% hoặc phiếu mua hàng trị giá 500 ngàn đồng.\n\n",
+        "description": "Như vậy ngày 27/3/2017, chúng ta đã chứng kiến việc hạ sinh hai anh em dòng Galaxy S, không ai khác chính là S8 và S8 Plus. Hãy cùng TQSP làm bài so sánh nhanh những điểm khác biệt giữa hai thiết bị này nhé.",
+        "__v": 0,
+        "updated_at": "2017-12-12T02:52:43.747Z",
+        "created_at": "2017-12-12T02:52:43.747Z",
+        "images": "image.png"
+    }
+...
+]
+```
+
+##### GET /post/page/:page
+
+Dữ liệu gửi
+
+```
+    :page : number
+
+    vd /post/page/3
+```
+Dữ liệu trả về
+
+```json
+[
+...
+
+    {
+        "_id": "5a2f447b1f72d004fa7fc595",
+        "user_id": "5a2e5331a79ae80b45c20382",
+        "title": "So sánh nhanh những khác biệt giữa Galaxy S8 và Galaxy S8 Plus",
+        "content": "Xperia XA đã rất thành công vì vậy mà nhiều người đang mong đợi phiên bản Xperia XA1 sẽ về Việt Nam. Tin vui là máy đã có giá bán chính thức và lên kệ tại Thế giới di động.\n\nTheo đó, Xperia XA1 có giá bán chính thức là 6.49 triệu đồng tại nước ta, hiện sản phẩm chỉ được bán độc quyền tại hệ thống siêu thị TGDĐ. Các bạn có thể mua máy trong thời gian từ 28/3 - 30/4 sẽ nhận được khuyến mãi là trả góp 0% hoặc phiếu mua hàng trị giá 500 ngàn đồng.\n\n",
+        "description": "Như vậy ngày 27/3/2017, chúng ta đã chứng kiến việc hạ sinh hai anh em dòng Galaxy S, không ai khác chính là S8 và S8 Plus. Hãy cùng TQSP làm bài so sánh nhanh những điểm khác biệt giữa hai thiết bị này nhé.",
+        "__v": 0,
+        "updated_at": "2017-12-12T02:52:43.747Z",
+        "created_at": "2017-12-12T02:52:43.747Z",
+        "images": "image.png"
+    }
+...
+]
+```
+
+##### POST /post/addpost
+
+Dữ liệu gửi
+
+```
+    user_id: 5a2e5331a79ae80b45c20382
+    title: gs
+    content: ccdss
+    description: hehhhh
+    images: imcs.cscds
+    created_at: Date.now()
+    updated_ad: Date.now()
+```
+
+Dữ liệu trả về
+
+```json
+   {
+    "__v": 0,
+    "user_id": "5a2e5331a79ae80b45c20382",
+    "title": "gs",
+    "content": "ccdss",
+    "description": "hehhhh",
+    "_id": "5a2f5e60a6e3b309118d76bf",
+    "updated_at": "2017-12-12T04:43:12.885Z",
+    "created_at": "2017-12-12T04:43:12.885Z",
+    "images": "imcs.cscds"
+}
+```
+
+##### DELETE /post/:postId
+
+Dữ liệu gửi
+
+```
+    không có
+```
+
+Dữ liệu trả về
+
+```json
+    {
+    "msg": "ok",
+    "delPost": {
+        "_id": "5a2f447a1f72d004fa7fc590",
+        "user_id": "5a2e5331a79ae80b45c20382",
+        "title": "gs",
+        "content": "ccdss",
+        "description": "hehhhh",
+        "__v": 0,
+        "updated_at": "2017-12-12T04:26:56.934Z",
+        "created_at": "2017-12-12T02:52:42.813Z",
+        "images": "imcs.cscds"
+    }
+}
+```
+
+##### PUT /post/:postId
+
+Dữ liệu gửi
+
+```json
+    {
+        "_id": "5a2f447a1f72d004fa7fc590",
+        "user_id": "5a2e5331a79ae80b45c20382",
+        "title": "gs",
+        "content": "ccdss",
+        "description": "hehhhh",
+        "__v": 0,
+        "updated_at": "2017-12-12T04:26:56.934Z",
+        "created_at": "2017-12-12T02:52:42.813Z",
+        "images": "imcs.cscds"
+    }
+```
+
+Dữ liệu trả về
+
+```json
+    {
+        "_id": "5a2f447a1f72d004fa7fc590",
+        "user_id": "5a2e5331a79ae80b45c20382",
+        "title": "cd",
+        "content": "sddf",
+        "description": "cdsdf",
+        "__v": 0,
+        "updated_at": "2017-12-12T04:26:56.934Z",
+        "created_at": "2017-12-12T02:52:42.813Z",
+        "images": "cdsdg.df"
+    }
+```
+
 ### Product
 
 ##### GET /api/productlatestproduct

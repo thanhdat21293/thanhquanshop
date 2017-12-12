@@ -4,7 +4,7 @@
   "description": "**Thành viên:** - Mạnh Linh - Hà Đăng - Quang Tuyên - Thành Đạt (Hỗ trợ đẩy tiến độ + đồ án)",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev" : "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +29,8 @@
     "passport-google-oauth": "^1.0.0",
     "passport-jwt": "^3.0.1",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.5"
   }
 }

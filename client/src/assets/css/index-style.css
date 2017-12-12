@@ -18,7 +18,9 @@ a:focus {
 span {
 	display: block;
 }
-
+p {
+  font-size:14px;
+}
 
 .no-bg {
 	background: none;
@@ -108,11 +110,10 @@ header {
 	background-size: 35px;
 }
 .log-in{
-	display: none !important;
 	position: relative;
 }
-.logged {
-	display: block;
+div.logged {
+	display: none;
 	position: relative;
 }
 .logged-box {
@@ -994,7 +995,7 @@ h4#myModalLabel.modal-title{
     padding: 2px;
 }
 
-.product-box .fa-shopping-cart {
+.product-box i {
   color:#fff;
 }
 

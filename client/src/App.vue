@@ -1,6 +1,7 @@
 <template>
   <div id="page">
     <Headerr></Headerr>
+    <div class="blank-box" ></div> <!-- khoảng trắng ở phía trên để cách header với banner-->
     <router-view/>
     <Footerr></Footerr>
   </div>

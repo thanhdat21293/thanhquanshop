@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div class="blank-box" ></div> <!-- khoảng trắng ở phía trên để cách header với banner-->
       <Slide></Slide>
 			<section class="container" >
         <HotProduct :hotProduct="hotProduct"></HotProduct>
@@ -23,6 +22,7 @@ import QuangCao from '@/components/home/QuangCao'
 import axios from 'axios'
 let SERVER = process.env.SERVER
 export default {
+  name: 'Index',
   data () {
     return {
       hotProduct: [],

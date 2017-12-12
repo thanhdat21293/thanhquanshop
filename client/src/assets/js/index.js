@@ -38,9 +38,9 @@ $(document).ready(function(){
     });
 
 
-     $(".del").click(function(){
-        $(".product-selected").css("display", "none");
-    });
+    //  $(".del").click(function(){
+    //     $(".product-selected").css("display", "none");
+    // });
 
 
 

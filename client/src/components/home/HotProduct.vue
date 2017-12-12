@@ -17,8 +17,7 @@
                 <p v-for="value, name in product.main_property" class="des">{{ name }} {{value}}</p>
               </div>
               <a :href="'/product/' + product._id" class="watch">Xem chi tiết</a>
-              <span class="buy" @click.stop.prevent="addtocart(product._id)">Mua hàng</span>
-              <span class="buy added">Đã thêm vào giỏ hàng</span>
+              <span class="buy" @click.stop.prevent="addtocart(product._id)">Thêm vào giỏ <i class="fa fa-shopping-cart"></i></span>
             </div><!-- end info-box -->
           </div><!-- end name-price -->
         </div><!-- end product-box -->
@@ -27,11 +26,14 @@
   </div> <!-- end row -->
 </template>
 <script>
+  import axios from 'axios'
+  let SERVER = process.env.SERVER
+  let $ = require('jquery')
   export default {
-    props: ['hotProduct'],
+    props: ['hotProduct', 'addcart'],
     methods: {
-      // let SERVER = process.env.SERVER
       addtocart (id) {
+        $('.buy i').attr('class', 'fa fa-spinner fa-pulse')
         if (localStorage.cart) {
           let cart = JSON.parse(localStorage.cart)
           if (cart[id] > 0) {
@@ -39,11 +41,41 @@
           } else {
             cart[id] = 1
           }
-          localStorage.cart = JSON.stringify(cart)
+          axios.post(`${SERVER}/api/product/checktocart`, cart)
+            .then(res => {
+              if (res.data.message === 'ok') {
+                localStorage.cart = JSON.stringify(cart)
+              } else {
+                let message = ''
+                res.data.results.map((item, index) => {
+                  if (index > 0) {
+                    message += '<br><br>'
+                  }
+                  message += `Sản phẩm <b>${item.title}</b> còn <b>${item.qty}</b> trong kho.`
+                })
+                $('#addtocart-modal .bg-warning').html(message)
+                $('#btn-addtocart-modal').click()
+              }
+            })
         } else {
           let cart = {}
           cart[id] = 1
-          localStorage.cart = JSON.stringify(cart)
+          axios.post(`${SERVER}/api/product/checktocart`, cart)
+            .then(res => {
+              if (res.data.message === 'ok') {
+                localStorage.cart = JSON.stringify(cart)
+              } else {
+                let message = ''
+                res.data.results.map((item, index) => {
+                  if (index > 0) {
+                    message += '<br><br>'
+                  }
+                  message += `Sản phẩm <b>${item.title}</b> còn <b>${item.qty}</b> trong kho.`
+                })
+                $('#addtocart-modal .bg-warning').html(message)
+                $('#btn-addtocart-modal').click()
+              }
+            })
         }
       }
     }

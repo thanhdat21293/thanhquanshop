@@ -14,23 +14,23 @@ module.exports = {
     addCategories: async (req, res) => {
         try {
             // //Thêm category cha: 'Điện thoại' và 'Phụ kiện'
-            // //let data = require('../data/category.json')
+            // let data = require('../data/category.json')
             //
             // //Thêm category cha xong thì vào category con để sửa parent = id cha
-            // let data = require('../data/categoryChild.json')
-            // for(let i in data) {
-            //     let item = data[i];
-            //     let addNewProduct = new Category(
-            //         {
-            //             user_id: '5a2a15a19661d90d1e94d530',
-            //             name: item.name,
-            //             alias: item.alias,
-            //             parent: item.parent
-            //         }
-            //     )
-            //     console.log(addNewProduct)
-            //     await addNewProduct.save();
-            // }
+            let data = require('../data/categoryChild.json')
+            for(let i in data) {
+                let item = data[i];
+                let addNewProduct = new Category(
+                    {
+                        user_id: '5a2a15a19661d90d1e94d530',
+                        name: item.name,
+                        alias: item.alias,
+                        parent: item.parent
+                    }
+                )
+                console.log(addNewProduct)
+                await addNewProduct.save();
+            }
             res.status(200).json({a:1})
         }
         catch (err) {

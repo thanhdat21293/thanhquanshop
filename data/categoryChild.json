@@ -2,101 +2,101 @@
   "0": {
     "name": "Apple",
     "alias": "apple",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "1": {
     "name": "Samsung",
     "alias": "samsung",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "2": {
     "name": "Sony",
     "alias": "sony",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "3": {
     "name": "Oppo",
     "alias": "oppo",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "4": {
     "name": "Asus",
     "alias": "asus",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "5": {
     "name": "Lenovo",
     "alias": "lenovo",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "6": {
     "name": "Nokia",
     "alias": "nokia",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "7": {
     "name": "Philip",
     "alias": "philip",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "8": {
     "name": "Xiaomi",
     "alias": "xiaomi",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "9": {
     "name": "Huawei",
     "alias": "huawei",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "10": {
     "name": "Motorola",
     "alias": "motorola",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "11": {
     "name": "HTC",
     "alias": "htc",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47a1488911801787a3c"
   },
   "13": {
     "name": "Pin",
     "alias": "pin",
-    "parent": "5a2a16286bc1e70d4038e59b"
+    "parent": "5a2df47b1488911801787a3d"
   },
   "14": {
     "name": "Cáp sạc",
     "alias": "cap-sac",
-    "parent": "5a2a16286bc1e70d4038e59b"
+    "parent": "5a2df47b1488911801787a3d"
   },
   "15": {
     "name": "Thẻ nhớ",
     "alias": "the-nho",
-    "parent": "5a2a16286bc1e70d4038e59b"
+    "parent": "5a2df47b1488911801787a3d"
   },
   "16": {
     "name": "Tai nghe",
     "alias": "tai-nghe",
-    "parent": "5a2a16286bc1e70d4038e59b"
+    "parent": "5a2df47b1488911801787a3d"
   },
   "17": {
     "name": "Loa",
     "alias": "loa",
-    "parent": "5a2a16286bc1e70d4038e59b"
+    "parent": "5a2df47b1488911801787a3d"
   },
   "18": {
     "name": "Ốp lưng",
     "alias": "op-lung",
-    "parent": "5a2a16286bc1e70d4038e59b"
+    "parent": "5a2df47b1488911801787a3d"
   },
   "19": {
     "name": "Gậy chụp ảnh",
     "alias": "gay-chup-anh",
-    "parent": "5a2a16286bc1e70d4038e59b"
+    "parent": "5a2df47b1488911801787a3d"
   },
   "20": {
     "name": "Hãng khác",
     "alias": "hang-khac",
-    "parent": "5a2a16286bc1e70d4038e59a"
+    "parent": "5a2df47b1488911801787a3d"
   }
 }

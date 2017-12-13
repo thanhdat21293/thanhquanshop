@@ -55,6 +55,29 @@ module.exports = {
             res.json({ errMsg: err.message })
         }
     },
+   
+    //------chi tiet san pham
+    detail: async (req,res ) =>{
+        try{
+            let _id = req.params.id
+            let detail = await Product.findOne(
+                {
+                    status:1,
+                    _id: _id
+                },
+                {
+                    
+                })
+                res.status(200).json({
+                    detail
+                })
+        }
+        catch (err) {
+            res.json({
+                errMsg: err.message
+            })
+        }
+    },
     // ----------------check to cart----------------------
     checktoCart: async (req,res) =>{
         try{
@@ -77,10 +100,12 @@ module.exports = {
             let saveArr =[]
             for(let i in getProduct){
                 if(req.body[getProduct[i]._id] > getProduct[i].qty){
-                    saveArr.push(getProduct[i].title)
+                    saveArr.push({
+                        title: getProduct[i].title,
+                        qty: getProduct[i].qty
+                    })
                 }
             }
-            console.log(saveArr)
             if(saveArr.length){
                 res.status(200).json({
                     message: 'no',

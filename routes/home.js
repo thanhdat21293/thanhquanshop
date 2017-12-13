@@ -6,9 +6,8 @@ module.exports = (appConfig, express) => {
   router.get('/', function(req, res) {
     res.json({a: 111})
   });
-
-
-
+  router.route('/dien-thoai/:id')
+    .get(productController.detail)
 
   return router;
 

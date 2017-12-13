@@ -55,7 +55,52 @@ module.exports = {
             res.json({ errMsg: err.message })
         }
     },
-    productByCatNoChild: async(req, res) => {
+    // ----------------check to cart----------------------
+    checktoCart: async (req,res) =>{
+        try{
+            let arrId=[];
+            console.log(req.body)
+            for(let item in req.body){
+                arrId.push(item)
+            }
+            let getProduct = await Product.find(
+                {
+                    status: 1,
+                    _id: {$in: arrId}
+                },
+                {
+                    title:1,
+                    main_property:1,
+                    price:1,
+                    qty: 1
+                })
+            let saveArr =[]
+            for(let i in getProduct){
+                if(req.body[getProduct[i]._id] > getProduct[i].qty){
+                    saveArr.push(getProduct[i].title)
+                }
+            }
+            console.log(saveArr)
+            if(saveArr.length){
+                res.status(200).json({
+                    message: 'no',
+                    results: saveArr
+                })
+            } else {
+                res.status(200).json({
+                    message:'ok'
+                })
+            }
+        }
+        catch (err) {
+            res.json({
+                errMsg: err.message
+            })
+        }
+    },
+
+
+    productByCatNoChild : async(req, res) => {
         try {
             let category_id = req.params.category_id
             let page = parseInt(req.params.page)

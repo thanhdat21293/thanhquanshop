@@ -5,6 +5,10 @@ import Cart from '@/Cart'
 import Thankyou from '@/Thankyou'
 import Dienthoai from '@/Dienthoai'
 import ChiTietSanPham from '@/ChiTietSanPham'
+import PhuKien from '@/PhuKien'
+import LienHe from '@/LienHe'
+import TinTuc from '@/TinTuc'
+import MyAccount from '@/MyAccount'
 
 Vue.use(Router)
 
@@ -39,6 +43,26 @@ export default new Router({
       path: '/san-pham/:id',
       name: 'ChiTietSanPham',
       component: ChiTietSanPham
+    },
+    {
+      path: '/phu-kien/',
+      name: 'PhuKien',
+      component: PhuKien
+    },
+    {
+      path: '/lien-he/',
+      name: 'LienHe',
+      component: LienHe
+    },
+    {
+      path: '/tin-tuc/',
+      name: 'TinTuc',
+      component: TinTuc
+    },
+    {
+      path: '/my-account/',
+      name: 'MyAccount',
+      component: MyAccount
     }
   ]
 })

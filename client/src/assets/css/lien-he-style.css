@@ -38,15 +38,15 @@ h1 {
 	border-bottom: 1px solid #999;
 }
 .phone {
-	background: url('../svg/dt.svg') no-repeat 0% center;
+	background: url('/src/assets/svg/dt.svg') no-repeat 0% center;
     background-size: contain;
 }
 .address{
-	background: url('../svg/tc.svg') no-repeat 0% center;
+	background: url('/src/assets/svg/tc.svg') no-repeat 0% center;
     background-size: contain;
 }
 .email {
-	background: url('../svg/mail.svg') no-repeat 0% center;
+	background: url('/src/assets/svg/mail.svg') no-repeat 0% center;
     background-size: contain;
     margin-bottom: 30px;
 }
@@ -56,7 +56,7 @@ h1 {
 .container-fluid{
 	background: #e5e5e5;
 	text-align: center;
-	
+
 }
 .col-md-12 h2 {
 	margin-top: 30px;
@@ -85,7 +85,7 @@ h1 {
 
 .col-md-12 span {
 	height: 100px;
-	background: url("../svg/call.svg") no-repeat center;
+	background: url("/src/assets/svg/call.svg") no-repeat center;
 	margin-bottom: 10px;
 }
 .col-md-12 p:last-child {

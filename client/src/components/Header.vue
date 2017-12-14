@@ -20,8 +20,8 @@
           <div class="sign col4 logged" v-if="user">
             <span id="login">{{user}}</span>
             <ul class="logged-box">
-              <li><a href="/my-account">Quản lý tài khoản</a></li>
-              <li><a href="/my-account/orders">Đơn hàng của tôi</a></li>
+              <li><a href="/#/my-account">Quản lý tài khoản</a></li>
+              <li><a href="/#/my-account/orders">Đơn hàng của tôi</a></li>
               <li><span href="" class="onclick-loggoff show-logged loggoff-button" @click.stop.prevent="logout">Đăng xuất</span></li>
             </ul>
           </div>
@@ -89,7 +89,7 @@
                     </ul>
                   </div>
                 </li>
-                <li class="mm-pk"><a href="phu-kien.html">PHỤ KIỆN</a>
+                <li class="mm-pk"><a href="/#/phu-kien">PHỤ KIỆN</a>
                   <div class="menu-dropdown menu-dropdown2">
                     <ul>
                       <li><a href="phu-kien.html" class="pk-icon-1">Pin sạc</a></li>
@@ -104,9 +104,8 @@
                     </ul>
                   </div>
                 </li>
-                <li class="mm-km"><a href="khuyen-mai.html">KHUYẾN MẠI</a></li>
-                <li class="mm-tt"><a href="tin-tuc.html">TIN TỨC</a></li>
-                <li class="mm-lh"><a href="lien-he.html">LIÊN HỆ</a></li>
+                <li class="mm-tt"><a href="/#/tin-tuc">TIN TỨC</a></li>
+                <li class="mm-lh"><a href="/#/lien-he">LIÊN HỆ</a></li>
               </ul>
             </nav>
           </div>

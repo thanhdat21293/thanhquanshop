@@ -9,6 +9,9 @@ module.exports = (appConfig, express) => {
   router.route('/dien-thoai/:id')
     .get(productController.detail)
 
+  router.route('/cart')
+    .post(productController.cart)
+        
   return router;
 
 };

@@ -82,7 +82,6 @@ module.exports = {
     checktoCart: async (req,res) =>{
         try{
             let arrId=[];
-            console.log(req.body)
             for(let item in req.body){
                 arrId.push(item)
             }
@@ -123,8 +122,33 @@ module.exports = {
             })
         }
     },
-
-
+    //-----------list cart-----------------
+    cart: async (req,res) =>{
+        try{
+            let arrId=[];
+            for(let item in req.body){
+                arrId.push(item)
+            }
+            let getProduct = await Product.find(
+            {
+                status:1,
+                _id: {$in: arrId}
+            },
+            {
+                title: 1,
+                price: 1
+            }
+        )
+            res.status(200).json({
+                getProduct
+            })
+        }
+        catch (err) {
+            res.json({
+                errMsg: err.message
+            })
+        }
+    },
     productByCatNoChild : async(req, res) => {
         try {
             let category_id = req.params.category_id
@@ -157,6 +181,8 @@ module.exports = {
             res.json({ errMsg: err.message })
         }
     },
+    
+   
     productByCatAndChild: async(req, res) => {
         try {
             let category_id = req.params.category_id

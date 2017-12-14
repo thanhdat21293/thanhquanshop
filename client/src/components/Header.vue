@@ -16,27 +16,28 @@
             </form>
           </div>
 
-          <div class="sign col4 log-in">
+
+          <div class="sign col4 logged" v-if="user">
+            <span id="login">{{user}}</span>
+            <ul class="logged-box">
+              <li><a href="/my-account">Quản lý tài khoản</a></li>
+              <li><a href="/my-account/orders">Đơn hàng của tôi</a></li>
+              <li><span href="" class="onclick-loggoff show-logged loggoff-button" @click.stop.prevent="logout">Đăng xuất</span></li>
+            </ul>
+          </div>
+
+          <div class="sign col4 log-in" style="display:block" v-else>
             <span id="login" class="show-login">Đăng nhập - Đăng ký tài khoản</span>
             <ul class="logged-box log-in-box">
               <li>
-
                 <span data-toggle="modal" data-target="#loginModal">Đăng nhập </span>
               </li>
               <li>
                 <span data-toggle="modal" data-target="#registerModal">Đăng Ký</span>
               </li>
+            </ul>
+          </div>
 
-            </ul>
-          </div>
-          <div class="sign col4 logged">
-            <span id="login"> $ Tên người dùng</span>
-            <ul class="logged-box">
-              <li><a href="user.html">Quản lý tài khoản</a></li>
-              <li><a href="gio-hang.html">Đơn hàng của tôi</a></li>
-              <li><span href="" class="onclick-loggoff show-logged loggoff-button">Đăng xuất</span></li>
-            </ul>
-          </div>
         </div> <!-- end row -->
       </div> <!-- end container -->
     </div> <!-- end search-bar -->
@@ -57,7 +58,7 @@
               <ul class="">
                 <li class="dkdn"><a href="#">ĐĂNG KÍ - ĐĂNG NHẬP</a></li>
                 <li class="mm-tc"><a class="active" href="index.html">TRANG CHỦ</a></li>
-                <li class="mm-dt"><a href="danh-sach.html">ĐIỆN THOẠI</a>
+                <li class="mm-dt"><a href="/#/dien-thoai">ĐIỆN THOẠI</a>
                   <div class="menu-dropdown">
                     <ul>
                       <li>HÃNG SẢN XUẤT</li>
@@ -158,11 +159,11 @@
               <div class=" form-group oauth-container">
                 <div class="oauth-item fb">
                   <img src="/src/assets/images/facebook.png">
-                  <button>Đăng nhập bằng Facebook</button>
+                  <button @click.stop.prevent="authenticate('facebook')">Đăng nhập bằng Facebook</button>
                 </div>
                 <div class="oauth-item gg">
                   <img src="/src/assets/images/google.png">
-                  <button>Đăng nhập bằng Google</button>
+                  <button @click.stop.prevent="authenticate('google')">Đăng nhập bằng Google</button>
                 </div>
               </div>
             </div>
@@ -177,44 +178,34 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                 aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">Đăng ký tài khoản</h4>
-              <form>
-                <div class="form-group accountFormGroupStyle">
-                  <label>Họ và Tên</label>
-                  <input type="text" name="" class="form-control" placeholder="Họ Tên">
-                </div>
+              <p class="bg-warning" v-if="errMsg">{{ errMsg }}</p>
+              <p class="bg-success" v-if="msg">{{ msg }}</p>
+              <form id="registerform">
                 <div class="form-group accountFormGroupStyle">
                   <label>Tên đăng nhập</label>
-                  <input type="text" name="" class="form-control" placeholder="Email hoặc Số điện thoại">
+                  <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập">
+                </div>
+                <div class="form-group accountFormGroupStyle">
+                  <label>Email</label>
+                  <input type="text" name="email" class="form-control" placeholder="Địa chỉ email">
                 </div>
                 <div class="form-group accountFormGroupStyle">
                   <label>Mật khẩu</label>
-                  <input type="password" name="" class="form-control"
+                  <input type="password" name="password" class="form-control"
                          placeholder="Mật khẩu phải lớn hơn 6 và nhỏ hơn 30 ký tự">
                 </div>
                 <div class="form-group accountFormGroupStyle">
                   <label>Nhập lại Mật khẩu</label>
-                  <input type="password" name="" class="form-control"
+                  <input type="password" name="password_confirm" class="form-control"
                          placeholder="Nhập lại Mật khẩu phải giống Mật khẩu">
-                </div>
-                <div class="form-group accountFormGroupStyle">
-                  <label>Giới tính</label>
-                  <select>
-                    <option checked="checked">Khác</option>
-                    <option>Nữ</option>
-                    <option>Nam</option>
-                  </select>
-                </div>
-                <div class="form-group accountFormGroupStyle">
-                  <label>Địa chỉ của bạn</label>
-                  <textarea class="form-control accountFormGroupStyle" rows="3"></textarea>
                 </div>
                 <div class="checkbox form-group accountFormGroupStyle">
                   <label>
-                    <input type="checkbox" name=""> Tôi đồng ý với các điều khoản của shop
+                    <input type="checkbox" name="agree"> Tôi đồng ý với các điều khoản của shop
                   </label>
                 </div>
                 <div class="form-group accountFormGroupStyle submitButton">
-                  <button type="submit" class="btn btn-submit-account">Đăng Ký</button>
+                  <button type="button" class="btn btn-submit-account" @click.stop.prevent="register">Đăng Ký</button>
                 </div>
                 <div class="form-group accountFormGroupStyle">
                   <div class="sub-container">
@@ -227,11 +218,11 @@
               <div class=" form-group oauth-container">
                 <div class="oauth-item fb">
                   <img src="/src/assets/images/facebook.png">
-                  <button>Đăng nhập bằng Facebook</button>
+                  <button><a href="http://localhost:3000/api/login/facebook">Đăng nhập bằng Facebook</a></button>
                 </div>
                 <div class="oauth-item gg">
                   <img src="/src/assets/images/google.png">
-                  <button>Đăng nhập bằng Google</button>
+                  <button @click.stop.prevent="logingoogle()">Đăng nhập bằng Google</button>
                 </div>
               </div>
             </div>
@@ -282,22 +273,72 @@
           </div>
         </div>
       </div>
-
     </nav>
   </header>
 </template>
 <script>
   import axios from 'axios'
   let SERVER = process.env.SERVER
-  // let $ = require('jquery')
+  let $ = require('jquery')
+  //  Vue.use(VueAuthenticate, {
+  //    baseUrl: SERVER, // Your API domain
+  //    providers: {
+  //      facebook: {
+  //        clientId: '724038607649657',
+  //        clientSecret: 'ee909a7ea7210e8c3fa3aeb3716366e5',
+  //        name: 'facebook',
+  //        url: '/api/login/facebook',
+  //        authorizationEndpoint: 'https://www.facebook.com/v2.5/dialog/oauth',
+  //        redirectUri: 'http://localhost:8080/',
+  //        requiredUrlParams: ['display', 'scope'],
+  //        scope: ['email'],
+  //        scopeDelimiter: ',',
+  //        display: 'popup',
+  //        oauthType: '2.0',
+  //        popupOptions: { width: 580, height: 400 }
+  //      }
+  //    }
+  //  })
   export default {
+    data () {
+      return {
+        errMsg: '',
+        msg: '',
+        user: localStorage.user || ''
+      }
+    },
     methods: {
-      login () {
-        // let data = $('#loginform').serialize()
-        axios.post(`${SERVER}/api/login`, {username: 'thanhdat21293', password: '1'})
+      register () {
+        this.errMsg = ''
+        this.msg = ''
+        let data = $('#registerform').serialize()
+        axios.post(`${SERVER}/api/register`, data)
           .then(res => {
-            console.log(res)
+            if (res.data.errMsg) {
+              this.errMsg = res.data.errMsg
+            } else {
+              this.msg = res.data.msg
+            }
           })
+      },
+      login () {
+        this.errMsg = ''
+        this.msg = ''
+        let data = $('#loginform').serialize()
+        axios.post(`${SERVER}/api/login`, data)
+          .then(res => {
+            if (res.data.errMsg) {
+              this.errMsg = res.data.errMsg
+            } else {
+              $('#loginModal .close').click()
+              this.user = res.data.user
+              localStorage.user = res.data.user
+              localStorage.token = res.data.token
+            }
+          })
+      },
+      logout () {
+        this.user = localStorage.user = localStorage.token = ''
       }
     }
   }

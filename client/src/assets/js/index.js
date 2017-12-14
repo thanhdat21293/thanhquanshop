@@ -46,10 +46,10 @@ $(document).ready(function(){
 
 
 
-    $(".logged").click(function(){
+    $(document).on('click', '.logged', function(){
         $(".logged-box").toggleClass("appear");
     });
-    $(".log-in").click(function(){
+    $(document).on('click', '.log-in', function(){
         $(".log-in-box").toggleClass("appear");
     });
 

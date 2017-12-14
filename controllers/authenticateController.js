@@ -33,12 +33,15 @@ module.exports = {
             let email = req.body.email;
             let password = req.body.password;
             let password_confirm = req.body.password_confirm;
+            let agree = req.body.agree;
 
             let usernameRegex = /^[a-zA-Z0-9]+$/;
             let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             let passwordRegex = /^[a-zA-Z0-9~!@#$%^&*().,?=-]+$/;
 
-            if (!username || !password || !password_confirm || !email) {
+            if (!agree) {
+                res.json({errMsg: 'Bạn phải đồng ý với các điều khoản của chúng tôi.'})
+            } else if (!username || !password || !password_confirm || !email) {
                 res.json({errMsg: 'Không được để trống.'})
             } else if (!usernameRegex.test(username)) {
                 res.json({errMsg: 'Tên đăng nhập không hợp lệ.'})
@@ -49,7 +52,16 @@ module.exports = {
             } else if (password !== password_confirm) {
                 res.json({errMsg: 'Mật khẩu không trùng.'})
             } else {
-                let checkUser = await User.find({username, email});
+                let checkUser = await User.find({
+                    $or: [
+                        {
+                            username: username
+                        },
+                        {
+                            email: email
+                        }
+                    ],
+                });
                 if (checkUser.length > 0) {
                     res.json({errMsg: 'Tên đăng nhập hoặc Email đã tồn tại.'})
                 } else {
@@ -74,32 +86,76 @@ module.exports = {
     },
     login: async(req, res) => {
         try {
-            let message = '';
-            if (req.session.flash) {
-                message = req.session.flash.error.length > 0 ? req.session.flash.error[0] : '';
-            }
-            if (message) {
-                req.session.flash = '';
-                res.status(200).json({errMsg: message})
-            } else {
-                let payload = {
-                    username: req.user.username,
-                    email: req.user.email,
-                    id: req.user._id
-                };
-                jwt.sign(payload, jwtOptions.secretOrKey, {issuer: jwtOptions.issuer}, function (err, token) {
-                    if (err)
-                        res.json({errMsg: err.message})
+            let username = req.body.username
+            let password = req.body.password
+            let checkUser = await User.find({
+                $or: [
+                    {
+                        username: username
+                    },
+                    {
+                        email: username
+                    }
+                ],
+            });
+            if (checkUser.length > 0) {
+                if (bcrypt.compareSync(password, checkUser[0].password)){
+                    let payload = {
+                        username: checkUser[0].username,
+                        email: checkUser[0].email,
+                        id: checkUser[0]._id
+                    };
+                    jwt.sign(payload, jwtOptions.secretOrKey, {issuer: jwtOptions.issuer}, function (err, token) {
+                        if (err)
+                            res.json({errMsg: err.message})
 
-                    res.status(200).json({
-                        user: payload,
-                        token: token
-                    })
-                });
+                        res.status(200).json({
+                            user: checkUser[0].username || checkUser[0].email,
+                            token: token
+                        })
+                    });
+                }else {
+                    res.json({errMsg: 'Mật khẩu không đúng.'});
+                }
+            } else {
+                res.json({errMsg: 'Tên đăng nhập hoặc Email không tồn tại.'})
             }
+            // let message = '';
+            // if (req.session.flash) {
+            //     message = req.session.flash.error.length > 0 ? req.session.flash.error[0] : '';
+            // }
+            // if (message) {
+            //     req.session.flash = '';
+            //     res.status(200).json({errMsg: message})
+            // } else {
+            //     let payload = {
+            //         username: req.user.username,
+            //         email: req.user.email,
+            //         id: req.user._id
+            //     };
+            //     jwt.sign(payload, jwtOptions.secretOrKey, {issuer: jwtOptions.issuer}, function (err, token) {
+            //         if (err)
+            //             res.json({errMsg: err.message})
+            //
+            //         res.status(200).json({
+            //             user: payload,
+            //             token: token
+            //         })
+            //     });
+            // }
+        }
+        catch (err) {
+            res.json({errMsg: err.message})
+        }
+    },
+    facebook: async(req, res) => {
+        try {
+            let clientId = req.body.clientId;
+            res.json({id: clientId})
         }
         catch (err) {
             res.json({errMsg: err.message})
         }
     }
+
 }

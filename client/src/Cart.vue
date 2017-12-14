@@ -25,28 +25,44 @@
           </ul>
         </div>
       </div><!-- enf cart-info -->
-      <div class="row product-selected">
-        <div class="col-md-4 no-padding">
+      <div v-if="products.length">
+        <div class="row product-selected" v-for="product in products" :id="'div_' + product._id">
+          <div class="col-md-4 no-padding">
+            <ul>
+              <li><span class="number">1</span><span class="img"></span></li>
+              <li>{{product.title}}</li>
+            </ul>
+          </div>
+          <div class="col-md-4 no-padding">
+            <ul>
+              <li><p>Giá:</p>{{product.price}} VNĐ</li>
+              <li>
+                <input type="number" class="" :value="product.qty" :id="'input_' + product._id" @change.stop.prevent="changeQty(product._id)">
+                <i :class="'fa fa-spinner fa-pulse i0_' + product._id" style="display:none"></i>
+                <i :class="'fa fa-check i1_' + product._id" style="display:none"></i>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 no-padding">
+            <ul>
+              <li><p>Tạm tính:</p>{{product.price * product.qty}} VNĐ</li>
+              <li><span class="del" @click.stop.prevent="deleteProduct(product._id)"></span></li>
+            </ul>
+          </div>
+        </div> <!-- enf product-selected -->
+      </div>
+      <div class="row product-selected" v-else>
+        <div class="col-md-12 no-padding">
           <ul>
-            <li><span class="number">1</span><span class="img"></span></li>
-            <li>iPhone 7</li>
-          </ul>
-        </div>
-        <div class="col-md-4 no-padding">
-          <ul>
-            <li><p>Giá:</p>22.990.000 VNĐ</li>
-            <li><p>Số lượng:</p><input type="number" class="" value="1"></li>
-          </ul>
-        </div>
-        <div class="col-md-4 no-padding">
-          <ul>
-            <li><p>Tạm tính:</p>22.990.000 VNĐ</li>
-            <li><span class="del"></span></li>
+            <li style="width:100%">Không có sản phẩm trong giỏ,
+              <a href="/"> Mua hàng</a>
+            </li>
           </ul>
         </div>
       </div> <!-- enf product-selected -->
+
     </div>
-    <div class="row">
+    <div class="row" v-if="products.length">
       <form role="form" class="delivery-info">
         <div class="col-md-7">
             <div class="form-group d-name">
@@ -96,34 +112,82 @@
             </div>
           </div><!-- end payment-->
           <div class="total-line total-line-1"><p>Tạm tính:</p>
-            <p>22.990.000 VNĐ</p></div>
+            <p>{{subTotal}} VNĐ</p></div>
           <div class="total-line total-line-2"><p>Phí Ship:</p>
             <p>0 VNĐ</p></div>
           <div class="total-line total-line-3"><p>Giảm giá:</p>
             <p>0 VNĐ</p></div>
           <div class="total-line total-line-4"><p>Tổng cộng:</p>
-            <p>22.990.000 VNĐ</p></div>
+            <p>{{total}} VNĐ</p></div>
           <a class="buy product-buy-box" @click.stop.prevent="checkout()">THANH TOÁN</a>
           <a class="back-button" href="/">TIẾP TỤC MUA HÀNG</a>
         </div><!-- end col-->
       </form>
     </div><!--end row -->
+    <div v-else></div>
+
   </section>
 </template>
 <script>
   import axios from 'axios'
+  import $ from 'jquery'
   let SERVER = process.env.SERVER
   export default {
+    data () {
+      return {
+        products: [],
+        cart: localStorage.cart ? JSON.parse(localStorage.cart) : '',
+        subTotal: 0,
+        total: 0
+      }
+    },
     created () {
-      let cart = JSON.parse(localStorage.cart)
-      axios.post(`${SERVER}/api/product/cart`, {cart})
-        .then(res => {
-          console.log(cart)
-        })
+      this.getCart()
     },
     methods: {
+      getCart () {
+        if (localStorage.cart) {
+          let cart = JSON.parse(localStorage.cart)
+          axios.post(`${SERVER}/api/cart`, cart)
+            .then(res => {
+              let subTotal = 0
+              res.data.getProduct.map((item, index) => {
+                let product = res.data.getProduct[index]
+                product.stt = index + 1
+                product.qty = cart[item._id]
+                subTotal += product.price * product.qty
+              })
+              this.products = res.data.getProduct
+              this.subTotal = subTotal
+              this.total = subTotal
+            })
+        }
+      },
       checkout () {
         console.log(1)
+      },
+      deleteProduct (id) {
+        $('#div_' + id).remove()
+        delete this.cart[id]
+        localStorage.cart = JSON.stringify(this.cart)
+        this.getCart()
+      },
+      changeQty (id) {
+        let qty = $('#input_' + id).val()
+        $('.i0_' + id).show()
+        if (qty < 1) {
+          $('#div_' + id).remove()
+          delete this.cart[id]
+        } else {
+          this.cart[id] = qty
+        }
+        $('.i0_' + id).hide()
+        $('.i1_' + id).show()
+        setTimeout(() => {
+          $('.i1_' + id).hide()
+        }, 1000)
+        localStorage.cart = JSON.stringify(this.cart)
+        this.getCart()
       }
     }
   }

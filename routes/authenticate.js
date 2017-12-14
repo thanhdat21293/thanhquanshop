@@ -10,23 +10,10 @@ module.exports = (appConfig, express, passport) => {
         .post(authenticateController.register)
 
     router.route('/login')
-        .get(authenticateController.login)
-        .post(passport.authenticate('local', {
-                                            successRedirect: '/api/login',
-                                            failureRedirect: '/api/login',
-                                            failureFlash: true
-                                        }))
-
-    router.route('/auth/facebook/callback')
-        .get(passport.authenticate('facebook', {
-                                            failureRedirect: '/login',
-                                            failureFlash: true
-                                        }), function(req, res) {
-                                            res.redirect('/private');
-                                        })
+        .post(authenticateController.login)
 
     router.route('/login/facebook')
-        .get(passport.authenticate('facebook'))
+        .post(authenticateController.facebook)
 
     router.route('/login/google')
         .get(passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.email'] }))

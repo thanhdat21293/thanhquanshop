@@ -64,7 +64,6 @@ require('./passport/facebook/facebook')(passport)
 require('./passport/google/google')(passport)
 require('./passport/local/local')(appConfig, passport)
 
-
 app.use('/api/', require('./routes/routes')(appConfig, express, passport));
 
 

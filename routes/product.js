@@ -31,6 +31,8 @@ module.exports = (appConfig, express) => {
         .get(productController.productByCatAndChild)
     router.route('/checktocart')
         .post(productController.checktoCart)
+    router.route('/addimage')
+        .get(productController.addImages)
 
     return router;
 };

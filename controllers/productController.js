@@ -1,5 +1,8 @@
+
+
 const Product = require('../models/productModel')
 const Category = require('../models/productCategoryModel')
+const ProductImage = require('../models/productImageModel')
 const categoryController = require('../controllers/productCategoryController')
 const appConfig = require('../config/config')
 
@@ -149,6 +152,33 @@ module.exports = {
             })
         }
     },
+    //------------------search---------------------
+    search: async(req,res) =>{
+        try {
+            let name = req.query.name;
+            let page = req.query.page || 1;
+            let offset =0;
+            // console.log('name:',name);
+            // console.log('page:',page)
+            if(page > 0){
+                offset = appConfig.numberOfPage.frontend*(page -1)
+            }
+            let searchResult = Product.find(
+                {
+
+                })
+            res.status(200).json({
+                name: name,
+                page: page
+            })
+        }
+        catch (err) {
+            res.json({
+                errMsg: err.message
+            })
+        }
+    },
+    //---------------------------------------------
     productByCatNoChild : async(req, res) => {
         try {
             let category_id = req.params.category_id
@@ -217,6 +247,31 @@ module.exports = {
             res.json({ errMsg: err.message })
         }
     },
+    //------------addImages----------------
+    addImages : async(req,res) =>{
+        try {
+            let data= require('../data/image.json')
+            for(let i in data){
+                let item = data[i];
+                let addImage = new ProductImage({
+                    name: item.name,
+                    product_id: item.product_id,
+                    feature: item.feature
+                })
+                console.log(addImage);
+                await addImage.save();
+            }            
+           res.status(200).json({
+               message: "inset thanh cong"
+           })
+        }
+        catch(err) {
+            res.json({
+                errMsg: err.message
+            })
+        }
+    },
+    //-------------------------------------
     addProduct: async(req, res) => {
         try {
             // let data = require('../data/product.json')

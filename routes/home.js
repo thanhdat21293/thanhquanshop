@@ -11,7 +11,8 @@ module.exports = (appConfig, express) => {
 
   router.route('/cart')
     .post(productController.cart)
-        
+  router.route('/search')
+    .get(productController.search)
   return router;
 
 };
